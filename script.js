@@ -13,6 +13,7 @@ let operation = '';
 function clear(){
     previousOperand.innerText = '';
     currentOperand.innerText = '';
+    currentSign.innerText = '';
 }
 function deleteF(){
     currentOperand.innerText = currentOperand.innerText.slice(0, -1);
@@ -73,8 +74,8 @@ numberButtons.forEach(button => {
 
 operationButtons.forEach(button => {
     button.addEventListener('click', ()=>{
-        operation = button.innerText;
-        currentSign.innerText = operation;
+
+        
        
         if(previousOperand.innerText===''){
             previousOperand.innerText = currentOperand.innerText;
@@ -85,10 +86,14 @@ operationButtons.forEach(button => {
         }
 
         if(currentOperand.innerText==='' || currentOperand.innerText==0){
+            operation = button.innerText;
+            currentSign.innerText = operation;
             return;
         }
 
         operate(operation, previousOperand.innerText, currentOperand.innerText)
+        operation = button.innerText;
+        currentSign.innerText = operation;
         
 
         
@@ -102,6 +107,7 @@ deleteButton.addEventListener('click', ()=>{
     this.deleteF();
 })
 equalsButton.addEventListener('click', ()=>{
+    if(currentOperand.innerText==='') return;
     operate(operation, previousOperand.innerText, currentOperand.innerText)
     currentSign.innerText='';
 })
