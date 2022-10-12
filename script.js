@@ -11,7 +11,7 @@ let botValue = '';
 let operation = '';
 
 function clear(){
-    previousOperand.innerText = '';
+    previousOperand.innerText = '0';
     currentOperand.innerText = '';
     currentSign.innerText = '';
 }
@@ -80,7 +80,7 @@ operationButtons.forEach(button => {
 
         
        
-        if(previousOperand.innerText===''){
+        if(previousOperand.innerText==='' || previousOperand.innerText==='Division on zero is PROHIBITED' || previousOperand.innerText=='0'){
             previousOperand.innerText = currentOperand.innerText;
             currentOperand.innerText = '';
             operation = button.innerText;

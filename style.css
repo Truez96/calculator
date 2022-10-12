@@ -55,6 +55,7 @@ body{
 }
 .output > .sign {
     font-size: 25px;
+    color: white;
 }
 
 .doublespace {
