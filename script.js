@@ -71,6 +71,9 @@ function appendNumber(number){
 numberButtons.forEach(button => {
     button.addEventListener('click', ()=>{
         if(button.innerText === '.' && currentOperand.innerText.includes('.')) return
+        if(currentSign.innerText===''){
+            previousOperand.innerText = '';
+        }
         currentOperand.innerText += button.innerText.toString();
     })
 })
